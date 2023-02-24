@@ -243,6 +243,18 @@ Utilizando o modelo aleátorio, que poderia ser só uma seleção aleátoria dos
 
 ## Performance do modelo de clusterização
 
+Nesse projeto, utilizamos três algoritmos de clusterização - Kmeans, Gaussian Mixture Model (GMM) e Hierarchical Clustering (HC) - em cada espaço de features e de embeddings. Para avaliar a qualidade dos agrupamentos produzidos, utilizamos a métrica de silhueta, que mede a distância entre os pontos de dados e seus respectivos clusters em relação aos outros clusters.
+
+Em cada caso, variamos o número de clusters e avaliamos o valor de Silhouette Score obtido para cada quantidade. Observamos que, em geral, a performance dos modelos aumentava à medida que o número de clusters aumentava, mas devido a restrições de negócios, decidimos limitar o número máximo de clusters para 10.
+
+Os resultados obtidos foram os seguintes:
+
+<img src="data/images/feature_space.png"/>
+
+Apesar de apresentar uma boa silhouetta,como pode ser observado no [notebook](https://github.com/lavinomenezes/ifood_data_analyst_challenge/blob/main/notebooks/ifood_lm_v09_segmentation_feature_space.ipynb) os resultados de socre não foram tão satisfátorios. Então foi realizada a análise no espaço de embedding, que resultou nos seguintes valores
+
+<img src="data/images/umap_space.png"/>
+
 ## Performance de cluster
 
 ## Resultados de clusterização
