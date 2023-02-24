@@ -168,14 +168,14 @@ Ao final o modelo escolhido foi o Balanced Random Forest, mais a frente será mo
 Ao final foi escolhido o Kmeans.
 </ul>
 
-      <li>
-    <strong>Fine tuning:</strong> O fine tuning de modelos de clusterização é feito pela análise dos valores das métricas com diferentes número de clustes. As métricas utilizadas foram:
-    <ul>
-        <li>Within-Cluster Sum of Square (WSS)</li>
-        <li>elbow</li>
-        <li>Sillhouete Score</li>
-    </ul>
-      </li>
+<li>
+<strong>Fine tuning:</strong> O fine tuning de modelos de clusterização é feito pela análise dos valores das métricas com diferentes número de clustes. As métricas utilizadas foram:
+<ul>
+   <li>Within-Cluster Sum of Square (WSS)</li>
+   <li>elbow</li>
+   <li>Sillhouete Score</li>
+</ul>
+</li>
 
 </ol>
 
