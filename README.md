@@ -1,5 +1,5 @@
-ifood
-==============================
+# ifood
+
 
 Uma empresa bem estabelecida no setor de alimentos de varejo possui uma base de dados de vários centenas de milhares de clientes registrados e atende a quase um milhão de consumidores por ano. Apesar de ter tido receitas sólidas e uma boa linha de fundo nos últimos três anos, as perspectivas de crescimento de lucro para os próximos três anos não são animadoras.
 
@@ -127,7 +127,7 @@ A divisão dos passos utilizados no projeto foi:
 </ul>
     <strong>Ao final da etapa o 'UMAP' apresentou a melhor divisão de espaço. sendo o espaço gerado palo método salvo em um dataframe para ser utilizado nos próximos passos.Gráficamente o agrupamento no espaço  pode ser visto a seguir:</strong>
 
-<img src="data/images/tree_based.png"/>
+<img src="data/images/umap.png"/>
     
 <li>
 <strong>Preparação dos dados:</strong> Manipular os dados para se adequarem melhor num modelo de machine learning. foi aplicado a re-escala dos atributos numéricos para não força o modelo a trabalhar com valores muito altos: 
@@ -142,7 +142,7 @@ MinMaxscaler: foi aplicado a todos os atributos.
 <strong>Feature selection:</strong> Neste primeiro ciclo do CRISP foi utilizado o algoritmo boruta para definir os atributos que iremos utilizar no treinamento, o algoritmo retornou quatro variáveis, mas não seria interessante montar um modelo apenas com estas variáveis. Então, foi aplicado o método de feature importance para definir o peso que os atributos tem no modelo.
 &nbsp;
         
-<img src="image/feature_importance.png"/>
+<img src="data/images/feature_importance.png"/>
 Após os resultados foi decidido que as variáveis: 'teenhome','kidhome','n_sons','accepted_cmp4','accepted_cmp2','complain','education'.
 </li>
 
@@ -160,12 +160,12 @@ Após os resultados foi decidido que as variáveis: 'teenhome','kidhome','n_sons
 Ao final o modelo escolhido foi o Balanced Random Forest, mais a frente será mostrado o motivo da escolha
 </li>
 <li>   
-<strong>Modelos de machine learning clusterização:</strong> Nesta etapa foram aplicados quatro algoritmos de clusterização e observado quais as métricas se comportavam melhor para determinado número de clusters:
+<strong>Modelos de machine learning clusterização:</strong> Nesta etapa foram aplicados três algoritmos de clusterização e observado quais as métricas se comportavam melhor para determinado número de clusters:
     <ul>      
     <li>K-Means;</li>
     <li>Gaussian Mixture Model(GMM);</li>
     <li>Hierarchical Clustering;</li>
-Ao final foi escolhido o Kmenas.
+Ao final foi escolhido o Kmeans.
 </ul>
 
       <li>
@@ -183,6 +183,31 @@ Ao final foi escolhido o Kmenas.
 ## Os Principais insights de negócio
 
 ## Performance do modelo de Rankeamento
+As métricas de classificação tradicionais, como precisão e recall, são úteis para avaliar a performance geral de modelos de recomendação, mas não levam em consideração a ordem em que os itens foram recomendados. Por isso, são usadas as métricas até k, que avaliam a relevância dos k primeiros itens recomendados.
+
+No entanto, essas métricas podem ser afetadas pelo desbalanceamento dos dados usados no treinamento do modelo. Por isso, o “balanced_accuracy_score” também é utilizado para avaliar a performance do modelo, levando em conta o desbalanceamento.
+
+Para garantir a generalização dos resultados de performance e evitar que um modelo tenha melhores resultados por coincidência, o método de Cross-validation foi aplicado.
+
+Para este projeto as métricas para avaliação foram:
+<ul>
+    <li>Precion_at_k(precision@k);</li>
+    <li>Recall_at_k(recall@k);</li>
+    <li>Balanced_acurracy_score.</li>
+</ul>
+
+| model name                 | precision_cv | prec_std | recall_cv | rec_std | balanced_acc_cv | bal_std | k   | precision_at_k_cv | perc_k_std | recall_at_k_cv | rec_k_std |
+|:--------------------------:|:------------:|:--------:|:---------:|:-------:|:---------------:|:-------:|:---:|:-----------------:|:----------:|:--------------:|:---------:|
+| balanced random forrest CV | 0.6742       | 0.0118   | 0.7916    | 0.0226  | 0.7916          | 0.0226  | 300 | 0.3178            | 0.0095     | 0.9258         | 0.0       |
+| Linear model CV            | 0.837        | 0.0058   | 0.6999    | 0.0068  | 0.6999          | 0.0068  | 300 | 0.3167            | 0.0103     | 0.9225         | 0.0       |
+| XGBoost CV                 | 0.7663       | 0.0128   | 0.7152    | 0.0256  | 0.7152          | 0.0256  | 300 | 0.3123            | 0.0094     | 0.9096         | 0.0       |
+| Random forrest CV          | 0.789        | 0.054    | 0.6428    | 0.0243  | 0.6428          | 0.0243  | 300 | 0.3068            | 0.0083     | 0.8935         | 0.0       |
+| Extra trees CV             | 0.7824       | 0.0458   | 0.6409    | 0.0243  | 0.6409          | 0.0243  | 300 | 0.3012            | 0.0041     | 0.8774         | 0.0       |
+| KNN CV                     | 0.7615       | 0.0374   | 0.6552    | 0.0102  | 0.6552          | 0.0102  | 300 | 0.2724            | 0.0098     | 0.7934         | 0.0       |
+| naive bayers CV            | 0.6662       | 0.0195   | 0.7223    | 0.0266  | 0.7223          | 0.0266  | 300 | 0.2602            | 0.0234     | 0.758          | 0.0       |
+
+O modelo que obteve melhor resultado foi o Balanced Random Forest, apresentando o melhor valor de recall@K e um bom balanced_accuracy_score, então foi seguido com ele para etapa de fine tuning.
+Na etapa do fine tuning, devido ao bom valor de recall@k, foram otimizados os hiperparâmetros do modelo para tentar melhorar os resultados, e um bom incremento foi conseguido durante o fine tuning. Os valores após o fine tuning foram:
 
 ## Performance de previsão
 
