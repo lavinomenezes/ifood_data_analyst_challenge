@@ -198,20 +198,48 @@ Para este projeto as métricas para avaliação foram:
 
 | model name                 | precision_cv | prec_std | recall_cv | rec_std | balanced_acc_cv | bal_std | k   | precision_at_k_cv | perc_k_std | recall_at_k_cv | rec_k_std |
 |:--------------------------:|:------------:|:--------:|:---------:|:-------:|:---------------:|:-------:|:---:|:-----------------:|:----------:|:--------------:|:---------:|
-| balanced random forrest CV | 0.6742       | 0.0118   | 0.7916    | 0.0226  | 0.7916          | 0.0226  | 300 | 0.3178            | 0.0095     | 0.9258         | 0.0       |
-| Linear model CV            | 0.837        | 0.0058   | 0.6999    | 0.0068  | 0.6999          | 0.0068  | 300 | 0.3167            | 0.0103     | 0.9225         | 0.0       |
-| XGBoost CV                 | 0.7663       | 0.0128   | 0.7152    | 0.0256  | 0.7152          | 0.0256  | 300 | 0.3123            | 0.0094     | 0.9096         | 0.0       |
-| Random forrest CV          | 0.789        | 0.054    | 0.6428    | 0.0243  | 0.6428          | 0.0243  | 300 | 0.3068            | 0.0083     | 0.8935         | 0.0       |
-| Extra trees CV             | 0.7824       | 0.0458   | 0.6409    | 0.0243  | 0.6409          | 0.0243  | 300 | 0.3012            | 0.0041     | 0.8774         | 0.0       |
-| KNN CV                     | 0.7615       | 0.0374   | 0.6552    | 0.0102  | 0.6552          | 0.0102  | 300 | 0.2724            | 0.0098     | 0.7934         | 0.0       |
-| naive bayers CV            | 0.6662       | 0.0195   | 0.7223    | 0.0266  | 0.7223          | 0.0266  | 300 | 0.2602            | 0.0234     | 0.758          | 0.0       |
+| Linear model CV            | 0.837        | 0.0058   | 0.6999    | 0.0068  | 0.6999          | 0.0068  | 200 | 0.4229            | 0.0215     | 0.8225         | 0.0       |
+| balanced random forrest CV | 0.6742       | 0.0118   | 0.7916    | 0.0226  | 0.7916          | 0.0226  | 200 | 0.4096            | 0.0261     | 0.7966         | 0.0       |
+| Random forrest CV          | 0.789        | 0.054    | 0.6428    | 0.0243  | 0.6428          | 0.0243  | 200 | 0.4063            | 0.0169     | 0.7902         | 0.0       |
+| Extra trees CV             | 0.7824       | 0.0458   | 0.6409    | 0.0243  | 0.6409          | 0.0243  | 200 | 0.4063            | 0.0169     | 0.7902         | 0.0       |
+| XGBoost CV                 | 0.7663       | 0.0128   | 0.7152    | 0.0256  | 0.7152          | 0.0256  | 200 | 0.403             | 0.0186     | 0.7838         | 0.0       |
+| KNN CV                     | 0.7615       | 0.0374   | 0.6552    | 0.0102  | 0.6552          | 0.0102  | 200 | 0.3549            | 0.0085     | 0.6903         | 0.0       |
+| naive bayers CV            | 0.6662       | 0.0195   | 0.7223    | 0.0266  | 0.7223          | 0.0266  | 200 | 0.3549            | 0.0285     | 0.6903         | 0.0       |
 
-O modelo que obteve melhor resultado foi o Balanced Random Forest, apresentando o melhor valor de recall@K e um bom balanced_accuracy_score, então foi seguido com ele para etapa de fine tuning.
-Na etapa do fine tuning, devido ao bom valor de recall@k, foram otimizados os hiperparâmetros do modelo para tentar melhorar os resultados, e um bom incremento foi conseguido durante o fine tuning. Os valores após o fine tuning foram:
+O modelo que obteve melhor resultado foi o Balanced Random Forest, apresentando a melhor combinação de valor de recall@K com um bom balanced_accuracy_score, então foi seguido com ele para etapa de fine tuning.
+Na etapa do fine tuning,foram otimizados os hiperparâmetros do modelo para tentar melhorar os resultados, e um bom incremento foi conseguido durante o fine tuning. Os valores após o fine tuning foram:
 
-## Performance de previsão
+| model name      | precision_cv | prec_std | recall_cv | rec_std | balanced_acc_cv | bal_std | k   | precision_at_k_cv | perc_k_std | recall_at_k_cv | rec_k_std |
+|:---------------:|:------------:|:--------:|:---------:|:-------:|:---------------:|:-------:|:---:|:-----------------:|:----------:|:--------------:|:---------:|
+| balanced rf  CV | 0.7353       | 0.0097   | 0.8765    | 0.0106  | 0.8765          | 0.0106  | 200 | 0.4809            | 0.0102     | 0.9355         | 0.0       |
+
 
 ## Resultados de previsão
+
+As curvas de ganho e lift são ferramentas de avaliação comuns em problemas de classificação binária, como é o caso de muitos modelos de recomendação. A curva de ganho compara a taxa de verdadeiros positivos (TP) do modelo com a proporção de exemplos positivos no conjunto de teste. Já a curva de lift compara a taxa de TP do modelo com a taxa esperada, considerando que a escolha dos exemplos positivos é feita aleatoriamente.
+
+Essas métricas foram utilizadas para responder as questões de négocio.
+
+<strong>Qual porcentagem de clientes interresados o time de marketing consigurá contatar oferecendo a ofertar para os primeiros 20% dos clienetes da lista ordenada?</strong>
+
+Com 133 ligações o time de vendas atingirá 62.75% dos clientes interresados em toda base disponível, considerando que ao total se tem 668 de possíveis clientes, 133 represanta apenas 19.91% do total, ou seja, ligando para menos de um quinto da base de dados é possivel atingir mais da metade dos possivelmente interresados 
+
+<img src="data/images/gain_20.png"/>
+
+Utilizando o modelo aleátorio, que poderia ser só uma seleção aleátoria dos clientes ou uma simples ordenação por algum atributo, ligando para 133 clientes atingiriamos apenas 20 dos 102 clientes interresados, já como o nosso modelo atingimos 64, assim, captando 3.2 vezes mais potênciais clientes
+
+<img src="data/images/lift_20.png"/>
+
+<strong>Se a capacidade do time de marketing dobrar? qual a porcentagem de potênciais clientes que será atingida?</strong>
+
+Com 266 ligações o time de vendas atingirá 90.2% dos clientes interresados em toda base disponível, considerando que ao total se tem 668 de possíveis clientes, 266 represanta apenas 39.82% do total, ou seja, ligando para menos da metade base de dados é possivel atingir a grande maioria dos possivelmente interresados 
+
+<img src="data/images/gain_40.png"/>
+
+Utilizando o modelo aleátorio, que poderia ser só uma seleção aleátoria dos clientes ou uma simples ordenação por algum atributo, ligando para 266 clientes atingiriamos apenas 40 dos 102 clientes interresados, já como o nosso modelo atingimos 92, assim, captando 2.3 vezes mais potênciais clientes
+
+<img src="data/images/lift_40.png"/>
+
 
 ## Performance do modelo de clusterização
 
