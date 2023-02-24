@@ -251,9 +251,13 @@ Os resultados obtidos foram os seguintes:
 
 <img src="data/images/feature_space.png"/>
 
-Apesar de apresentar uma boa silhouetta,como pode ser observado no [notebook](https://github.com/lavinomenezes/ifood_data_analyst_challenge/blob/main/notebooks/ifood_lm_v09_segmentation_feature_space.ipynb) os resultados de socre não foram tão satisfátorios. Então foi realizada a análise no espaço de embedding, que resultou nos seguintes valores
+Apesar de apresentar uma boa silhouetta,como pode ser observado no [notebook](https://github.com/lavinomenezes/ifood_data_analyst_challenge/blob/main/notebooks/ifood_lm_v09_segmentation_feature_space.ipynb) os resultados de score não foram tão satisfátorios. Então foi realizada a análise no espaço de embedding, que resultou nos seguintes valores
 
 <img src="data/images/umap_space.png"/>
+
+Uma grande melhoria em relação ao espaço original de features. Foi escolhido o valor de clusters igual a cinco, que apresentou o melhor resultado do silouette score e uma boa analise de solhouetta como pode ser visto abaixo:
+
+<img src="data/images/sil_ana.png"/>
 
 ## Performance de cluster
 
