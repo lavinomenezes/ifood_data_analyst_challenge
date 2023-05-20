@@ -278,6 +278,10 @@ Para facilitar a identificação, observando algumas características de cada cl
 ### Quantos grupos foram criados na segmentação?
 5
 ### Qual o grupo mais rentável ?
+Apesar de não ter a maior média de gastos o clusters "olders" foi o mais rentável com R$ 537,160.00 de faturamento
+
+<img src="data/images/total_spent_clusters.png">
+
 ### Quais as principais características do grupo mais rentável ?
 ### Qual a porcentagem de contribuição do faturamento, vinda do grupo ?
 ### Qual as condições para ser adicionada ou removida do grupo?
