@@ -283,5 +283,67 @@ Apesar de não ter a maior média de gastos o clusters "olders" foi o mais rent�
 <img src="data/images/total_spent_clusters.png">
 
 ### Quais as principais características do grupo mais rentável ?
+para ser classificada como cliente "olders" o cliente stem de apresentar as caracteristicas dentro de intervalos: 
+|   Variável             |   Inferior         |   Superior         |
+|------------------------|--------------------|--------------------|
+|   income               |   R$ 55.530,46     |   R$ 56.689,86     |
+|   recency              |   46,74            |   48,23            |
+|   mnt_wines            |   368,26           |   386,66           |
+|   mnt_fruits           |   35,10            |   37,47            |
+|   mnt_meat_products    |   223,79           |   236,74           |
+|   mnt_fish_products    |   51,11            |   54,37            |
+|   mnt_sweet_products   |   35,25            |   37,65            |
+|   mnt_gold_prods       |   49,58            |   52,37            |
+|   num_deals_purchases  |   1,77             |   1,84             |
+|   num_web_purchases    |   4,29             |   4,42             |
+|   num_catalog_purchases|   3,37             |   3,52             |
+|   num_store_purchases  |   6,30             |   6,47             |
+|   num_web_visits_month |   4,64             |   4,77             |
+|   age                  |   50,54            |   51,19            |
+|   n_family_members     |   NaN              |   NaN              |
+|   days_since_signup    |   358,52           |   368,97           |
+|   income_per_member    |   R$ 27.765,23     |   R$ 28.344,93     |
+|   total_spent          |   R$ 767,44        |   R$ 800,91        |
+
+Esses são os valores de intervalo do nosso modelo atual. Se as características da base de clientes mudarem, haverá mudanças nesses valores.
+
 ### Qual a porcentagem de contribuição do faturamento, vinda do grupo ?
-### Qual as condições para ser adicionada ou removida do grupo?
+O cluster "olders" contribui com 44% do faturamento total da empresa no período de tempo analisado.
+
+## Conclusão
+
+Neste projeto, os potenciais clientes foram ordenados de acordo com sua probabilidade de aceitar uma oferta, com os mais prováveis sendo classificados no topo da lista de recomendações. Além disso, foram realizados testes para analisar o comportamento das variáveis.
+
+A segmentação dos clientes também foi realizada para entender melhor as características de cada grupo e observar seu comportamento e características de forma mais precisa. Com base nessa segmentação, foram criados 5 clusters, sendo o cluster "olders" o mais lucrativo e que mais contribuiu para o faturamento da empresa, representando 44% do total.
+
+Com esses resultados em mãos, a equipe de marketing pode direcionar seus esforços para os clientes mais propensos a aceitar a oferta, aumentando a eficiência e reduzindo os custos envolvidos.
+
+## Próximos Passos
+<ul>
+
+    <li>Iniciar um novo ciclo com balanceamento de dado;</li>
+    <li>Testar mais hypotheses;</li>
+    <li>Criar novas features;</li>
+    <li>Testar outros algoritmos de machine learning.</li>
+
+<ul>
+## Ferramentas utlizadas
+<ul>
+    <li>Jupyter notebook</li>
+    <li>Vscode</li>
+    <li>Git</li>
+    <li>Python</li>
+    <li>Pandas</li>
+    <li>Pandas Profile</li>
+    <li>Numpy</li>
+    <li>Sklearn</li>
+    <li>Xgboost</li>
+    <li>Seaborn</li>
+    <li>Umap</li>
+    <li>PCA</li>
+    <li>T-SNE</li>
+    <li>Kmeans</li>
+    <li>Gaussian Mixture Model</li>
+    <li>Hierarchical Clustering</li>
+    <li>yellowbrick</li>
+</ul>
