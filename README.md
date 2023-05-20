@@ -260,5 +260,23 @@ Uma grande melhoria em relação ao espaço original de features. Foi escolhido 
 <img src="data/images/sil_ana.png"/>
 
 ## Performance de cluster
+Após o treino do modelo com o número de clusters definido, as principais características dos clientes de cada agrupamento foram definidas e podem ser observadas na tabela abaixo.
+
+<img src="data/images/clusters.png">
+
+Para facilitar a identificação, observando algumas características de cada cluster, foram definidos os seguintes nomes:
+
+|Clusters|Name|
+|:------:|:--:|
+|3|buyers|
+|0|olders|
+|1|army|
+|4|smallville|
+|2|great family|
 
 ## Resultados de clusterização
+### Quantos grupos foram criados na segmentação?
+### Qual o grupo mais rentável ?
+### Quais as principais características do grupo mais rentável ?
+### Qual a porcentagem de contribuição do faturamento, vinda do grupo ?
+### Qual as condições para ser adicionada ou removida do grupo?
