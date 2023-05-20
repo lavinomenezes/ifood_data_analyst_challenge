@@ -320,7 +320,7 @@ Com esses resultados em mãos, a equipe de marketing pode direcionar seus esfor�
 
 ## Próximos Passos
 <ul>
-    <li>Iniciar um novo ciclo com balanceamento de dado;</li>
+    <li>Iniciar um novo ciclo;</li>
     <li>Testar mais hypotheses;</li>
     <li>Criar novas features;</li>
     <li>Testar outros algoritmos de machine learning.</li>
