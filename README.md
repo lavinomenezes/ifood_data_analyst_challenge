@@ -324,7 +324,8 @@ Com esses resultados em m√£os, a equipe de marketing pode direcionar seus esfor√
     <li>Testar mais hypotheses;</li>
     <li>Criar novas features;</li>
     <li>Testar outros algoritmos de machine learning.</li>
-<ul>
+</ul>
+
 
 ## Ferramentas utlizadas
 <ul>
