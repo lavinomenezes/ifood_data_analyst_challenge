@@ -276,6 +276,7 @@ Para facilitar a identificação, observando algumas características de cada cl
 
 ## Resultados de clusterização
 ### Quantos grupos foram criados na segmentação?
+5
 ### Qual o grupo mais rentável ?
 ### Quais as principais características do grupo mais rentável ?
 ### Qual a porcentagem de contribuição do faturamento, vinda do grupo ?
