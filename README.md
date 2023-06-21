@@ -7,7 +7,7 @@ O departamento de marketing está sob pressão para gastar seu orçamento anual 
 
 O objetivo da equipe de cientistas de dados é construir um modelo preditivo que produza o maior lucro possível para a próxima campanha de marketing direto, agendada para o próximo mês. Essa nova campanha tem como foco a venda de um novo gadget para a base de dados de clientes. Para construir o modelo, uma campanha piloto envolvendo 2.240 clientes foi realizada. Os clientes foram selecionados aleatoriamente e contatados por telefone para adquirir o gadget. Durante os meses seguintes, os clientes que compraram a oferta foram devidamente rotulados. O objetivo da equipe é desenvolver um modelo que prevê o comportamento do cliente e aplicá-lo ao resto da base de clientes. Espera-se que o modelo permita à empresa escolher os clientes que têm mais probabilidade de adquirir a oferta, deixando de lado os não-respondentes e tornando a próxima campanha altamente rentável.
 
-Além disso, o CMO está interessado em entender e estudar as características dos clientes. Por isso, a equipe de cientistas de dados também desenvolverá uma segmentação de clientes para melhor entender suas características e oferecer benefícios personalizados para aumentar a fidelidade. O sucesso dessas atividades provará o valor da abordagem e convencerá os mais céticos dentro da empresa.
+Além disso, o CMO está interessado em entender e estudar as características dos clientes. Por isso, a equipe de cientistas de dados também desenvolverá uma segmentação de clientes para melhor entender suas características e oferecer benefícios personalizados para aumentar a fidelidade. O sucesso dessas atividades provará o valor da abordagem e convencerá os mais céticos dentro da empresa
 
 
 |Feature | Descrição |
@@ -181,7 +181,10 @@ Ao final foi escolhido o Kmeans.
 
 
 ## Os Principais insights de negócio
-
+h4
+h6
+h11
+h13
 ## Performance do modelo de Rankeamento
 As métricas de classificação tradicionais, como precisão e recall, são úteis para avaliar a performance geral de modelos de recomendação, mas não levam em consideração a ordem em que os itens foram recomendados. Por isso, são usadas as métricas até k, que avaliam a relevância dos k primeiros itens recomendados.
 
